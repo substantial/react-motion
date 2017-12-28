@@ -6,7 +6,7 @@ import mergeDiff from './mergeDiff';
 import defaultNow from 'performance-now';
 import defaultRaf from 'raf';
 import shouldStopAnimation from './shouldStopAnimation';
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import type {
@@ -192,7 +192,7 @@ type TransitionMotionState = {
   mergedPropsStyles: Array<TransitionStyle>,
 };
 
-export default class TransitionMotion extends React.Component {
+export default class TransitionMotion extends React.Component<TransitionProps, TransitionMotionState> {
   static propTypes = {
     defaultStyles: PropTypes.arrayOf(PropTypes.shape({
       key: PropTypes.string.isRequired,
@@ -223,9 +223,6 @@ export default class TransitionMotion extends React.Component {
     willLeave: () => null,
     didLeave: () => {},
   };
-
-  state: TransitionMotionState;
-  props: TransitionProps;
 
   unmounting: boolean = false;
   animationID: ?number = null;

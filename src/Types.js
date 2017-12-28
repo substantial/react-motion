@@ -4,7 +4,7 @@
 // Babel's sight.
 /* eslint-disable spaced-comment, no-undef */
 /*::
-import type React from 'react';
+import * as React from 'react';
 export type ReactElement = React.Element<*>;
 */
 
